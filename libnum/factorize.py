@@ -95,6 +95,14 @@ def factorize(n):
     return prime_factors
 
 
+def euler_func(n):
+    factors = factorize(n)
+    res = 1
+    for f,n in factors.iteritems():
+        res *= (f-1) ** n
+    return res
+
+
 def unfactorize(factors):
     return reduce(lambda acc, (p, e): acc * (p**e), factors.items(), 1)
 
