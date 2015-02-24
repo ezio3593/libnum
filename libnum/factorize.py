@@ -10,7 +10,7 @@ from .primes import primes, prime_test
 from .common import gcd, nroot
 
 
-__all__ = "factorize unfactorize".split()
+__all__ = "factorize unfactorize euler_func".split()
 
 
 _PRIMES_CHECK = primes(100)
@@ -99,7 +99,7 @@ def euler_func(n):
     factors = factorize(n)
     res = 1
     for f,n in factors.iteritems():
-        res *= (f-1) ** n
+        res *= (f-1) * f ** (n-1)
     return res
 
 
